@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arye Glikman — General Manager, EMEA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f8f6;
+    --white: #ffffff;
+    --surface: #f2f2f0;
+    --accent: #1a1a1a;
+    --blue: #0047ff;
+    --muted: #888884;
+    --muted2: #b8b8b4;
+    --border: #e4e4e0;
+    --text: #1a1a1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 4rem; height: 64px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700; font-size: 0.82rem;
+    color: var(--accent); text-decoration: none;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 0; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    padding: 0 1.5rem; height: 64px;
+    display: flex; align-items: center;
+    border-left: 1px solid var(--border);
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav-links a:hover { color: var(--accent); background: var(--surface); }
+  .nav-cta { background: var(--accent) !important; color: var(--white) !important; }
+  .nav-cta:hover { background: #333 !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 460px;
+    border-bottom: 1px solid var(--border);
+    margin-top: 64px;
+  }
+  .hero-left {
+    padding: 5rem 4rem;
+    display: flex; flex-direction: column; justify-content: space-between;
+    border-right: 1px solid var(--border);
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem; color: var(--muted);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 3rem;
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px;
+    border-radius: 50%; background: var(--blue); flex-shrink: 0;
+  }
+  .hero h1 {
+    font-size: clamp(3.5rem, 5.5vw, 6rem);
+    font-weight: 700; line-height: 0.95;
+    letter-spacing: -0.03em; margin-bottom: 2rem;
+  }
+  .hero h1 em { font-style: normal; color: var(--blue); display: block; }
+  .hero-sub {
+    font-size: 1rem; color: var(--muted);
+    line-height: 1.85; font-weight: 400;
+    max-width: 520px; margin-bottom: 3rem;
+  }
+  .hero-ctas { display: flex; gap: 0; }
+  .btn-primary {
+    background: var(--accent); color: var(--white);
+    padding: 0 2rem; height: 48px;
+    display: inline-flex; align-items: center;
+    text-decoration: none; font-weight: 600;
+    font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: background 0.15s;
+  }
+  .btn-primary:hover { background: #333; }
+  .btn-outline {
+    border: 1px solid var(--border); border-left: none;
+    color: var(--text); padding: 0 2rem; height: 48px;
+    display: inline-flex; align-items: center;
+    text-decoration: none; font-size: 0.75rem;
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
+    transition: background 0.15s;
+  }
+  .btn-outline:hover { background: var(--surface); }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2.5rem; }
+  .hero-tag {
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--muted); font-size: 0.7rem; font-weight: 500;
+    padding: 0.3rem 0.75rem; letter-spacing: 0.04em;
+  }
+  .hero-right {
+    display: flex; flex-direction: column; gap: 0;
+    background: var(--border);
+  }
+  .stat-cell {
+    background: var(--white); flex: 1;
+    padding: 2rem; display: flex; flex-direction: column; justify-content: flex-end;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .stat-cell:last-child { border-bottom: none; }
+  .stat-cell:hover { background: var(--surface); }
+  .stat-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 2.6rem; font-weight: 700;
+    color: var(--accent); line-height: 1; margin-bottom: 0.5rem;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--muted); }
+
+  /* SECTION ROWS */
+  .section-row {
+    display: grid; grid-template-columns: 180px 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-sidebar {
+    border-right: 1px solid var(--border);
+    background: var(--white);
+    padding: 3rem 1.5rem;
+    display: flex; align-items: flex-start; justify-content: center;
+    position: sticky; top: 64px; height: fit-content;
+  }
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; font-weight: 700;
+    color: var(--muted2); letter-spacing: 0.14em;
+    text-transform: uppercase; writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  .section-content { padding: 4rem; }
+  .section-heading {
+    font-size: 1.9rem; font-weight: 700; letter-spacing: -0.03em;
+    margin-bottom: 3rem; padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 280px; gap: 4rem; }
+  .about-text { font-size: 0.97rem; color: #5a5a5a; line-height: 1.95; }
+  .about-text p + p { margin-top: 1.2rem; }
+  .about-aside { display: flex; flex-direction: column; }
+  .aside-block {
+    border: 1px solid var(--border); border-bottom: none;
+    padding: 1.25rem; background: var(--white);
+  }
+  .aside-block:last-child { border-bottom: 1px solid var(--border); }
+  .aside-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted2); margin-bottom: 0.9rem;
+  }
+  .aside-item {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 0.45rem 0; border-bottom: 1px solid var(--border);
+    font-size: 0.83rem;
+  }
+  .aside-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .aside-item-left { color: var(--text); font-weight: 500; }
+  .aside-item-right { color: var(--muted); font-size: 0.75rem; }
+  .aside-sub { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
+
+  /* EXPERIENCE */
+  .tl-item {
+    display: grid; grid-template-columns: 170px 1fr; gap: 2rem;
+    padding: 2rem 0; border-bottom: 1px solid var(--border);
+  }
+  .tl-item:first-child { padding-top: 0; }
+  .tl-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .tl-period {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem; color: var(--blue);
+    font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .tl-location { font-size: 0.72rem; color: var(--muted); line-height: 1.5; }
+  .tl-role {
+    font-size: 1rem; font-weight: 700;
+    letter-spacing: -0.01em; margin-bottom: 0.2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .tl-current {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--white); background: var(--blue);
+    padding: 0.2rem 0.5rem;
+  }
+  .tl-company { font-size: 0.8rem; color: var(--blue); font-weight: 600; margin-bottom: 0.6rem; }
+  .tl-desc { font-size: 0.85rem; color: #777; line-height: 1.8; }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border); gap: 0;
+  }
+  .skill-item {
+    padding: 1.4rem 1.75rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--white); transition: background 0.15s;
+  }
+  .skill-item:nth-child(even) { border-right: none; }
+  .skill-item:nth-last-child(-n+2) { border-bottom: none; }
+  .skill-item:hover { background: var(--surface); }
+  .skill-header {
+    display: flex; justify-content: space-between;
+    align-items: baseline; margin-bottom: 0.7rem;
+  }
+  .skill-name { font-size: 0.85rem; font-weight: 600; }
+  .skill-pct {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; color: var(--muted2);
+  }
+  .skill-bar { background: var(--surface); height: 2px; overflow: hidden; }
+  .skill-fill {
+    height: 100%; background: var(--accent); width: 0;
+    transition: width 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* CONTACT */
+  .contact-section { background: var(--accent); border-bottom: none; }
+  .contact-section .section-sidebar {
+    background: transparent;
+    border-right-color: rgba(255,255,255,0.08);
+  }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .contact-headline {
+    font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 700;
+    letter-spacing: -0.03em; color: var(--white);
+    line-height: 1.1; margin-bottom: 1rem;
+  }
+  .contact-sub { color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.85; }
+  .contact-links { display: flex; flex-direction: column; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1.25rem;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.1); border-bottom: none;
+    text-decoration: none; color: var(--white);
+    transition: background 0.15s;
+  }
+  .contact-link:last-child { border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .contact-link:hover { background: rgba(255,255,255,0.05); }
+  .contact-link-icon {
+    width: 30px; height: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem; font-weight: 700;
+    flex-shrink: 0; color: rgba(255,255,255,0.6);
+  }
+  .contact-link-text { font-size: 0.85rem; font-weight: 600; }
+  .contact-link-sub { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 0.1rem; }
+
+  /* FOOTER */
+  footer {
+    padding: 1.5rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--white); border-top: 1px solid var(--border);
+    font-size: 0.72rem; color: var(--muted);
+  }
+  footer span:last-child { font-family: 'Space Mono', monospace; }
+
+  /* ANIMATION */
+  .fade-up {
+    opacity: 0; transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1000px) {
+    nav { padding: 0 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 3rem 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero-right { display: grid; grid-template-columns: 1fr 1fr; }
+    .stat-cell { border-bottom: none; border-right: 1px solid var(--border); }
+    .stat-cell:nth-child(even) { border-right: none; }
+    .section-row { grid-template-columns: 1fr; }
+    .section-sidebar { display: none; }
+    .section-content { padding: 2.5rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .tl-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .skill-item:nth-child(even) { border-right: none; }
+    .skill-item { border-right: none; }
+    .skill-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .skill-item:last-child { border-bottom: none; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    .nav-links li:not(:last-child) { display: none; }
+    .hero h1 { font-size: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Arye Glikman</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div>
+      <div class="hero-badge">General Manager, EMEA · Cerby · Tel Aviv</div>
+      <h1>Arye<br><em>Glikman</em></h1>
+      <p class="hero-sub">35+ years driving enterprise growth in SaaS and cybersecurity. Leading EMEA markets, identity automation, and strategic partnerships across global organizations.</p>
+      <div class="hero-ctas">
+        <a href="#experience" class="btn-primary">View Experience</a>
+        <a href="https://linkedin.com/in/arye-glikman" class="btn-outline" target="_blank">LinkedIn ↗</a>
+      </div>
+      <div class="hero-tags">
+        <span class="hero-tag">Identity &amp; Access Management</span>
+        <span class="hero-tag">Cybersecurity</span>
+        <span class="hero-tag">SaaS Leadership</span>
+        <span class="hero-tag">EMEA GTM</span>
+        <span class="hero-tag">Disconnected Apps</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-cell">
+      <div class="stat-num">35+</div>
+      <div class="stat-label">Years of professional experience</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">9+</div>
+      <div class="stat-label">Years as CEO at UniCloud</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">3×</div>
+      <div class="stat-label">C-suite executive roles held</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">EMEA</div>
+      <div class="stat-label">Current regional scope at Cerby</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section-row" id="about">
+  <div class="section-sidebar"><div class="section-label">About</div></div>
+  <div class="section-content">
+    <h2 class="section-heading fade-up">Professional Summary</h2>
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <p>With over twenty years of leadership experience in SaaS and cybersecurity, I serve as General Manager, EMEA at Cerby — empowering organizations to transform disconnected applications into strategic advantages.</p>
+        <p>I'm passionate about fostering operational efficiency, creating trusted partnerships, and driving sustainable growth across the EMEA market. I collaborate with enterprise clients and integrators to address critical challenges in application integration and cloud computing, positioning identity automation as a pivotal force for organizational success.</p>
+        <p>My career spans founding and leading technology companies, building high-performance sales organizations, and scaling enterprise products across international markets — from Israel to Europe and beyond.</p>
+      </div>
+      <div class="about-aside fade-up">
+        <div class="aside-block">
+          <div class="aside-label">Education</div>
+          <div class="aside-item">
+            <div>
+              <div class="aside-item-left">Academic College of Tel Aviv, Yaffo</div>
+              <div class="aside-sub">B.Eng., Computer Systems · 1986–1990</div>
+            </div>
+          </div>
+        </div>
+        <div class="aside-block">
+          <div class="aside-label">Languages</div>
+          <div class="aside-item">
+            <div class="aside-item-left">English</div>
+            <div class="aside-item-right">Full professional</div>
+          </div>
+          <div class="aside-item">
+            <div class="aside-item-left">Hebrew</div>
+            <div class="aside-item-right">Native</div>
+          </div>
+        </div>
+        <div class="aside-block">
+          <div class="aside-label">Location</div>
+          <div class="aside-item">
+            <div class="aside-item-left">Tel Aviv, Israel</div>
+            <div class="aside-item-right">EMEA travel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section-row" id="experience" style="background: var(--bg);">
+  <div class="section-sidebar" style="background: var(--bg);"><div class="section-label">Experience</div></div>
+  <div class="section-content">
+    <h2 class="section-heading fade-up">Work Experience</h2>
+
+    <div class="tl-item fade-up">
+      <div><div class="tl-period">Aug 2025 – Present</div><div class="tl-location">Germany (Hybrid)</div></div>
+      <div>
+        <div class="tl-role">General Manager, EMEA <span class="tl-current">Current</span></div>
+        <div class="tl-company">Cerby</div>
+        <div class="tl-desc">Leading Cerby's EMEA go-to-market strategy, building regional partnerships and enterprise sales channels. Driving adoption of identity automation solutions that address the challenge of disconnected applications across enterprise clients and system integrators.</div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-up">
+      <div><div class="tl-period">Apr 2016 – Jun 2025</div><div class="tl-location">9+ years · Petah Tikva</div></div>
+      <div>
+        <div class="tl-role">Chief Executive Officer</div>
+        <div class="tl-company">UniCloud</div>
+        <div class="tl-desc">Led UniCloud for over nine years as CEO, building the company's cloud computing and SaaS strategy. Oversaw all commercial operations, product direction, and strategic partnerships across Israeli and international markets.</div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-up">
+      <div><div class="tl-period">Jun 2014 – Apr 2016</div><div class="tl-location">Tel Aviv, Israel</div></div>
+      <div>
+        <div class="tl-role">Co-Founder &amp; CEO</div>
+        <div class="tl-company">Long Sight Ltd.</div>
+        <div class="tl-desc">Co-founded Long Sight Ltd., leading the company's strategic vision and business development. Established key commercial relationships and built initial team and operational infrastructure.</div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-up">
+      <div><div class="tl-period">Jul 2010 – Jul 2013</div><div class="tl-location">Israel</div></div>
+      <div>
+        <div class="tl-role">Chief Executive Officer</div>
+        <div class="tl-company">LIAM ONE1</div>
+        <div class="tl-desc">Served as CEO driving enterprise sales and operations strategy. Led the commercial organization through a period of product expansion and market development.</div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-up">
+      <div><div class="tl-period">Jun 2008 – Jul 2010</div><div class="tl-location">Israel</div></div>
+      <div>
+        <div class="tl-role">VP Sales</div>
+        <div class="tl-company">One1up</div>
+        <div class="tl-desc">Built and led the sales organization, developing new revenue streams and managing key enterprise accounts. Focused on channel partnerships and direct enterprise sales motions.</div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-up">
+      <div><div class="tl-period">Mar 2007 – Apr 2008</div><div class="tl-location">Israel</div></div>
+      <div>
+        <div class="tl-role">Account Manager</div>
+        <div class="tl-company">CA Technologies</div>
+        <div class="tl-desc">Managed strategic enterprise accounts across security and IT management portfolios at one of the world's leading IT management software companies.</div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-up">
+      <div><div class="tl-period">1999 – 2006</div><div class="tl-location">7 years · Israel</div></div>
+      <div>
+        <div class="tl-role">VP Sales</div>
+        <div class="tl-company">One1</div>
+        <div class="tl-desc">Seven-year tenure leading a major enterprise sales division. Built long-standing client relationships and drove consistent revenue growth across the Israeli enterprise technology market.</div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-up">
+      <div><div class="tl-period">Jan 1988 – Jun 1995</div><div class="tl-location">7 years</div></div>
+      <div>
+        <div class="tl-role">Chief Technology Officer</div>
+        <div class="tl-company">EIM International</div>
+        <div class="tl-desc">Began career as CTO, laying technical and managerial foundations across systems architecture and team leadership. Bridged deep technical expertise with early business development capabilities.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="section-row" id="skills">
+  <div class="section-sidebar"><div class="section-label">Skills</div></div>
+  <div class="section-content">
+    <h2 class="section-heading fade-up">Core Skills</h2>
+    <div class="skills-grid fade-up">
+      <div class="skill-item">
+        <div class="skill-header"><div class="skill-name">Identity &amp; Access Management</div><div class="skill-pct">97%</div></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="97"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><div class="skill-name">Enterprise Sales</div><div class="skill-pct">96%</div></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="96"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><div class="skill-name">SaaS Strategy</div><div class="skill-pct">95%</div></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><div class="skill-name">GTM Execution</div><div class="skill-pct">94%</div></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="94"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><div class="skill-name">Identity Automation</div><div class="skill-pct">93%</div></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="93"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><div class="skill-name">Cybersecurity</div><div class="skill-pct">92%</div></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><div class="skill-name">Channel Partnerships</div><div class="skill-pct">91%</div></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="91"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><div class="skill-name">Cloud Computing</div><div class="skill-pct">90%</div></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><div class="skill-name">P&amp;L Leadership</div><div class="skill-pct">90%</div></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><div class="skill-name">EMEA Markets</div><div class="skill-pct">88%</div></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="section-row contact-section" id="contact">
+  <div class="section-sidebar"><div class="section-label" style="color:rgba(255,255,255,0.2);">Contact</div></div>
+  <div class="section-content">
+    <div class="contact-grid">
+      <div class="fade-up">
+        <h2 class="contact-headline">Let's work<br>together.</h2>
+        <p class="contact-sub">Open to strategic conversations, enterprise partnerships, and new opportunities across the EMEA region. Whether you're exploring identity automation or seeking experienced SaaS leadership — let's connect.</p>
+      </div>
+      <div class="contact-links fade-up">
+        <a href="https://linkedin.com/in/arye-glikman" class="contact-link" target="_blank">
+          <div class="contact-link-icon">in</div>
+          <div><div class="contact-link-text">LinkedIn</div><div class="contact-link-sub">linkedin.com/in/arye-glikman</div></div>
+        </a>
+        <a href="https://cerby.com" class="contact-link" target="_blank">
+          <div class="contact-link-icon">↗</div>
+          <div><div class="contact-link-text">Cerby</div><div class="contact-link-sub">cerby.com</div></div>
+        </a>
+        <a href="mailto:arye@cerby.com" class="contact-link">
+          <div class="contact-link-icon">@</div>
+          <div><div class="contact-link-text">Email</div><div class="contact-link-sub">Get in touch directly</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Arye Glikman. All rights reserved.</span>
+  <span>Hosted free · GitHub Pages</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        e.target.querySelectorAll('.skill-fill').forEach(f => {
+          setTimeout(() => { f.style.width = f.dataset.width + '%'; }, 150);
+        });
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
